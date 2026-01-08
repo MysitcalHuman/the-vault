@@ -1,7 +1,20 @@
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Clock, Zap, Shield, Layout } from 'lucide-react';
+import { ArrowLeft, Clock, Zap, Shield, Pencil, Code } from 'lucide-react';
 
 const logs = [
+  {
+    version: "v1.2",
+    date: "January 2026",
+    title: "The Logic Refactor",
+    changes: [
+      "Integrated Prism Syntax Highlighting for professional code display",
+      "Added CRUD functionality: Full Edit/Update support for snippets",
+      "Optimized Modal performance using React Key-Reset strategy",
+      "Expanded snippet view vertical height for better readability",
+      "Added 'Copy to Clipboard' utility buttons"
+    ],
+    icon: <Pencil size={20} className="text-blue-400" />
+  },
   {
     version: "v1.1",
     date: "January 2026",
@@ -20,19 +33,22 @@ const logs = [
 
 export default function Updates() {
   return (
-    <div className="min-h-screen bg-obsidian text-white p-8 md:p-20">
-      <div className="max-w-3xl mx-auto">
-        <Link to="/" className="flex items-center gap-2 text-gray-500 hover:text-white transition-colors mb-12 group">
+    <div className="min-h-screen bg-obsidian text-white p-8 md:p-20 relative">
+       {/* Subtle background glow to match landing page */}
+       <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-blue-500/5 rounded-full blur-[100px]" />
+
+      <div className="max-w-3xl mx-auto relative z-10">
+        <Link to="/" className="flex items-center gap-2 text-gray-500 hover:text-white transition-colors mb-12 group text-sm font-mono uppercase tracking-widest">
           <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
           <span>Back to Home</span>
         </Link>
 
         <h1 className="text-5xl font-extrabold tracking-tighter mb-4 italic uppercase">System Updates</h1>
-        <p className="text-gray-400 mb-16 font-mono">Tracking the evolution of The Vault archive.</p>
+        <p className="text-gray-400 mb-16 font-mono text-sm tracking-tight">Tracking the evolution of The Vault archive.</p>
 
         <div className="flex flex-col gap-12 border-l border-white/10 pl-8">
           {logs.map((log, index) => (
-            <div key={index} className="relative">
+            <div key={index} className="relative animate-in fade-in slide-in-from-left-4 duration-500" style={{ delay: `${index * 100}ms` }}>
               {/* Timeline Dot */}
               <div className="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-obsidian border-2 border-white/20" />
               
