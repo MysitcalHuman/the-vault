@@ -5,6 +5,24 @@ import NewSnippetModal from '../components/NewSnippetModal';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import { initialSnippets } from '../data/initialData';
 
+function StatCard({ title, value, color }) {
+  return (
+    <div className="glass-card p-4 flex flex-col gap-1">
+      <span className="text-[10px] uppercase tracking-[0.2em] text-gray-500 font-bold">{title}</span>
+      <span className={`text-2xl font-mono font-bold ${color}`}>{value}</span>
+    </div>
+  );
+}
+
+function getMostUsedLanguage(snippets) {
+  if (snippets.length === 0) return "N/A";
+  const counts = snippets.reduce((acc, s) => {
+    acc[s.language] = (acc[s.language] || 0) + 1;
+    return acc;
+  }, {});
+  return Object.keys(counts).reduce((a, b) => counts[a] > counts[b] ? a : b);
+}
+
 function Dashboard() {
   const [snippets, setSnippets] = useLocalStorage('vault-snippets', initialSnippets);
   const [searchQuery, setSearchQuery] = useState('');
@@ -54,6 +72,22 @@ function Dashboard() {
             + New Snippet
           </button>
         </header>
+
+        {/* Stats Overview */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-10">
+          <StatCard title="Total Artifacts" value={snippets.length} color="text-white" />
+           <StatCard 
+              title="Languages" 
+              value={[...new Set(snippets.map(s => s.language))].length} 
+              color="text-blue-400" 
+              />
+            <StatCard 
+              title="Most Used" 
+              value={getMostUsedLanguage(snippets)} 
+              color="text-purple-400" 
+            />
+            <StatCard title="Storage" value="Local" color="text-green-400" />
+          </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
           {filteredSnippets.map(snippet => (

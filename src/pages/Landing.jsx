@@ -16,10 +16,12 @@ export default function Landing() {
           <span className="text-xl font-bold tracking-tighter uppercase italic">The Vault</span>
         </div>
 
-        {/*Sign in link tbd*/}
-        {/*<Link to="/dashboard" className="text-sm font-medium hover:text-gray-400 transition-colors">
-          Sign In
-        </Link>*/}
+        {/* Updated Navigation Links */}
+        <div className="flex gap-8 items-center">
+          <Link to="/updates" className="text-sm font-medium text-gray-400 hover:text-white transition-colors">
+            Updates
+          </Link>
+        </div>
       </nav>
 
       <main className="max-w-7xl mx-auto px-8 pt-20 pb-32 relative z-10">

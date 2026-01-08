@@ -1,0 +1,66 @@
+import { Link } from 'react-router-dom';
+import { ArrowLeft, Clock, Zap, Shield, Layout } from 'lucide-react';
+
+const logs = [
+  {
+    version: "v1.1",
+    date: "January 2026",
+    title: "The Stats Expansion",
+    changes: ["Added Dashboard Stat Cards", "Real-time language analytics", "React Router implementation"],
+    icon: <Zap size={20} className="text-yellow-400" />
+  },
+  {
+    version: "v1.0",
+    date: "January 2026",
+    title: "Vault Core Launch",
+    changes: ["LocalStorage persistence", "Universal sidebar categories", "Search & Delete functionality", "Glassmorphism UI"],
+    icon: <Shield size={20} className="text-blue-400" />
+  }
+];
+
+export default function Updates() {
+  return (
+    <div className="min-h-screen bg-obsidian text-white p-8 md:p-20">
+      <div className="max-w-3xl mx-auto">
+        <Link to="/" className="flex items-center gap-2 text-gray-500 hover:text-white transition-colors mb-12 group">
+          <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
+          <span>Back to Home</span>
+        </Link>
+
+        <h1 className="text-5xl font-extrabold tracking-tighter mb-4 italic uppercase">System Updates</h1>
+        <p className="text-gray-400 mb-16 font-mono">Tracking the evolution of The Vault archive.</p>
+
+        <div className="flex flex-col gap-12 border-l border-white/10 pl-8">
+          {logs.map((log, index) => (
+            <div key={index} className="relative">
+              {/* Timeline Dot */}
+              <div className="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-obsidian border-2 border-white/20" />
+              
+              <div className="flex items-center gap-3 mb-2">
+                <span className="text-[10px] font-mono bg-white/10 px-2 py-0.5 rounded text-gray-300">
+                  {log.version}
+                </span>
+                <span className="text-xs text-gray-500 flex items-center gap-1">
+                  <Clock size={12} /> {log.date}
+                </span>
+              </div>
+
+              <h3 className="text-2xl font-bold mb-4 flex items-center gap-2">
+                {log.icon} {log.title}
+              </h3>
+
+              <ul className="space-y-3">
+                {log.changes.map((change, i) => (
+                  <li key={i} className="text-gray-400 flex items-start gap-2 text-sm">
+                    <span className="text-white/30 mt-1.5">•</span>
+                    {change}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
