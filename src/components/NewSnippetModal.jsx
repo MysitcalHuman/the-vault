@@ -48,14 +48,17 @@ export default function NewSnippetModal({ isOpen, onClose, onSave }) {
           <div className="flex flex-col gap-1">
             <label className="text-xs uppercase text-gray-500 font-bold">Language</label>
             <select 
-              className="glass-input appearance-none"
-              value={formData.language}
-              onChange={e => setFormData({...formData, language: e.target.value})}
+              className="glass-input appearance-none cursor-pointer"
+                value={formData.language}
+                onChange={e => setFormData({...formData, language: e.target.value})}
             >
-              <option value="JavaScript">JavaScript</option>
-              <option value="React">React</option>
-              <option value="CSS">CSS</option>
-              <option value="Python">Python</option>
+                <option value="React">React</option>
+                <option value="TypeScript">TypeScript</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="Python">Python</option>
+                <option value="SQL">SQL</option>
+                <option value="CSS">HTML/CSS</option>
+                <option value="Utilities">Utilities</option>
             </select>
           </div>
 

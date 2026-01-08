@@ -1,7 +1,7 @@
-import { Copy, Check } from 'lucide-react';
+import { Copy, Check, Trash2 } from 'lucide-react'; // Add Trash2 import
 import { useState } from 'react';
 
-export default function SnippetCard({ snippet }) {
+export default function SnippetCard({ snippet, onDelete }) { // Destructure onDelete
   const [copied, setCopied] = useState(false);
 
   const copyToClipboard = () => {
@@ -17,14 +17,25 @@ export default function SnippetCard({ snippet }) {
           <h3 className="font-bold text-lg">{snippet.title}</h3>
           <span className="text-xs font-mono text-gray-500 uppercase tracking-widest">{snippet.language}</span>
         </div>
-        <button 
-          onClick={copyToClipboard}
-          className="p-2 hover:bg-white/10 rounded-md transition-colors text-gray-400 hover:text-white"
-        >
-          {copied ? <Check size={16} className="text-green-400" /> : <Copy size={16} />}
-        </button>
+        
+        <div className="flex gap-1"> {/* Container for buttons */}
+          <button 
+            onClick={copyToClipboard}
+            className="p-2 hover:bg-white/10 rounded-md transition-colors text-gray-400 hover:text-white"
+          >
+            {copied ? <Check size={16} className="text-green-400" /> : <Copy size={16} />}
+          </button>
+          
+          <button 
+            onClick={() => onDelete(snippet.id)}
+            className="p-2 hover:bg-red-500/10 rounded-md transition-colors text-gray-400 hover:text-red-400 opacity-0 group-hover:opacity-100"
+          >
+            <Trash2 size={16} />
+          </button>
+        </div>
       </div>
       
+      {/* Rest of your card code remains the same... */}
       <div className="relative">
         <pre className="bg-black/40 p-4 rounded-lg overflow-x-auto border border-white/5">
           <code className="font-mono text-sm text-blue-300">
