@@ -4,6 +4,10 @@ A premium, local-first code snippet library designed for the modern developer. B
 
 ![Project Status](https://img.shields.io/badge/Status-v1.1_Stable-green?style=flat-square)
 ![Stack](https://img.shields.io/badge/Stack-React_|_Vite_|_Tailwind_v4-blue?style=flat-square)
+![Deployment](https://img.shields.io/badge/Deployment-Vercel-black?style=flat-square&logo=vercel)
+
+
+[**🔗 View Live Demo**](https://the-vault-lilac.vercel.app/)
 
 ---
 
