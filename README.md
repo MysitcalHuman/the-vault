@@ -1,16 +1,37 @@
-# React + Vite
+# 🌌 THE VAULT | Secure Your Logic
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A premium, local-first code snippet library designed for the modern developer. Built with a "Glassmorphism" aesthetic, The Vault provides a high-performance workspace to archive, search, and manage your most valuable code artifacts.
 
-Currently, two official plugins are available:
+![Project Status](https://img.shields.io/badge/Status-v1.1_Stable-green?style=flat-square)
+![Stack](https://img.shields.io/badge/Stack-React_|_Vite_|_Tailwind_v4-blue?style=flat-square)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 💎 **Glassmorphism UI**: A sleek, dark-mode interface built with Tailwind CSS v4.
+- ⚡ **Zero Latency**: Local-first architecture using `localStorage` for instant data retrieval.
+- 🔍 **Omni-Search**: Real-time filtering by title, language, or category.
+- 📊 **Vault Analytics**: Dashboard stats to track your most-used languages and total artifacts.
+- 📱 **Responsive Design**: Optimized for deep-work sessions on desktop and quick references.
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Framework**: [React.js](https://reactjs.org/)
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Routing**: [React Router v6](https://reactrouter.com/)
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js (v18 or higher)
+- npm or yarn
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone [https://github.com/your-username/the-vault.git](https://github.com/your-username/the-vault.git)
+   cd the-vault
