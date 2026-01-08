@@ -1,4 +1,5 @@
 import { Terminal, Code2, Layout, Database, Cpu, Braces, Hash, Globe } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const categories = [
   { name: 'All Snippets', icon: <Terminal size={18} />, filter: 'All' },
@@ -15,10 +16,12 @@ export default function Sidebar({ activeCategory, setActiveCategory }) {
   return (
     <aside className="w-64 h-screen sticky top-0 border-r border-white/10 p-6 flex flex-col gap-8 overflow-y-auto custom-scrollbar">
       <div className="flex items-center gap-3 px-2">
-        <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
-          <div className="w-4 h-4 bg-obsidian rotate-45"></div>
-        </div>
-        <h2 className="text-xl font-bold tracking-tight uppercase italic">The Vault</h2>
+        <Link to="/" className="flex items-center gap-3 px-2 hover:opacity-80 transition-opacity">
+            <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
+                <div className="w-4 h-4 bg-obsidian rotate-45"></div>
+            </div>
+            <h2 className="text-xl font-bold tracking-tight uppercase italic text-white">The Vault</h2>
+        </Link>
       </div>
 
       <nav className="flex flex-col gap-2">
