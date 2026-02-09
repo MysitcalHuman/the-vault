@@ -29,6 +29,7 @@ function Dashboard() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingSnippet, setEditingSnippet] = useState(null); // Track what we are editing
+  const [activeTag, setActiveTag] = useState(null);
 
   const handleSaveSnippet = (snippetData) => {
     if (editingSnippet) {
@@ -54,8 +55,11 @@ function Dashboard() {
   const filteredSnippets = snippets.filter(s => {
     const matchesSearch = s.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
                           s.language.toLowerCase().includes(searchQuery.toLowerCase());
+
     const matchesCategory = activeCategory === 'All' || s.language === activeCategory;
-    return matchesSearch && matchesCategory;
+    const matchesTag = !activeTag || s.tags.includes(activeTag);
+    
+    return matchesSearch && matchesCategory && matchesTag;
   });
 
   return (
@@ -109,6 +113,7 @@ function Dashboard() {
               snippet={snippet} 
               onDelete={handleDeleteSnippet}
               onEdit={openEditModal} // Pass the edit function down
+              onTagClick={setActiveTag}
             />
           ))}
         </div>

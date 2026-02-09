@@ -1,7 +1,20 @@
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Clock, Zap, Shield, Pencil, Code } from 'lucide-react';
+import { ArrowLeft, Clock, Zap, Shield, Pencil, Eye, Tag } from 'lucide-react';
 
 const logs = [
+  {
+    version: "v1.3",
+    date: "February 2026",
+    title: "The Visual Vault",
+    changes: [
+      "Added Visual Artifacts: Support for high-res image previews via URL",
+      "Implemented Faceted Tag Filtering: Click tags to drill down instantly",
+      "Optimized filtering logic to combine Search, Category, and Tags",
+      "Enhanced UI feedback with active filter indicators and 'Clear' buttons",
+      "Fixed SPA refresh 404 errors with vercel.json server rewrites"
+    ],
+    icon: <Eye size={20} className="text-green-400" />
+  },
   {
     version: "v1.2",
     date: "January 2026",
@@ -43,12 +56,18 @@ export default function Updates() {
           <span>Back to Home</span>
         </Link>
 
-        <h1 className="text-5xl font-extrabold tracking-tighter mb-4 italic uppercase">System Updates</h1>
+        <h1 className="text-5xl font-extrabold tracking-tighter mb-4 italic uppercase text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">
+          System Updates
+        </h1>
         <p className="text-gray-400 mb-16 font-mono text-sm tracking-tight">Tracking the evolution of The Vault archive.</p>
 
         <div className="flex flex-col gap-12 border-l border-white/10 pl-8">
           {logs.map((log, index) => (
-            <div key={index} className="relative animate-in fade-in slide-in-from-left-4 duration-500" style={{ delay: `${index * 100}ms` }}>
+            <div 
+              key={index} 
+              className="relative animate-in fade-in slide-in-from-left-4 duration-500 fill-mode-both" 
+              style={{ animationDelay: `${index * 150}ms` }}
+            >
               {/* Timeline Dot */}
               <div className="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-obsidian border-2 border-white/20" />
               

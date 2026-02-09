@@ -3,7 +3,7 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 // 1. Added onEdit to the props here
-export default function SnippetCard({ snippet, onDelete, onEdit }) {
+export default function SnippetCard({ snippet, onDelete, onEdit, onTagClick }) {
   const handleCopy = () => {
     navigator.clipboard.writeText(snippet.code);
   };
@@ -50,6 +50,20 @@ export default function SnippetCard({ snippet, onDelete, onEdit }) {
         </div>
       </div>
 
+      {snippet.image && (
+        <div className="w-full h-40 overflow-hidden rounded-lg mb-2 border border-white/10 bg-white/5 group/img relative">
+          <img
+            src={snippet.image}
+            alt={snippet.title}
+            // This onError trick hides the broken image icon if the link is bad
+            onError={(e) => { e.target.style.display = 'none'; }}
+            className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-all duration-500 scale-105 group-hover/img:scale-100"
+          />
+          {/* Subtle overlay to make it look like a professional gallery */}
+          <div className="absolute inset-0 bg-gradient-to-t from-obsidian/80 to-transparent opacity-60" />
+        </div>
+      )}
+
       <div className="relative rounded-lg overflow-hidden border border-white/5">
         <SyntaxHighlighter
           // Helper: ensures language is valid for the highlighter
@@ -71,9 +85,13 @@ export default function SnippetCard({ snippet, onDelete, onEdit }) {
 
       <div className="flex flex-wrap gap-2 mt-auto">
         {snippet.tags.map(tag => (
-          <span key={tag} className="text-[10px] text-gray-500 font-mono">
+          <button
+            key = {tag}
+            onClick = {() => onTagClick(tag)} //pass tag back to dashboard
+            className="text-[10px] text-gray-500 font-mono hover:text-blue-400 transition-colors cursor-pointer"
+          >
             #{tag}
-          </span>
+          </button>
         ))}
       </div>
     </div>

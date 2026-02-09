@@ -8,7 +8,8 @@ export default function NewSnippetModal({ isOpen, onClose, onSave, editingSnippe
     title: editingSnippet?.title || '',
     language: editingSnippet?.language || 'JavaScript',
     code: editingSnippet?.code || '',
-    tags: editingSnippet?.tags.join(', ') || ''
+    tags: editingSnippet?.tags.join(', ') || '',
+    image: editingSnippet?.image || ''
   });
 
   if (!isOpen) return null;
@@ -91,6 +92,16 @@ export default function NewSnippetModal({ isOpen, onClose, onSave, editingSnippe
               placeholder="ui, animation, helper"
               value={formData.tags}
               onChange={e => setFormData({...formData, tags: e.target.value})}
+            />
+          </div>
+
+          <div className="flex flex-col gap-1">
+            <label className="text-xs uppercase text-gray-500 font-bold">Preview Image URL (Optional)</label>
+            <input
+              className="glass-input"
+              placeholder="https://images.unsplash.com/..."
+              value={formData.image}
+              onChange={e => setFormData({ ...formData, image: e.target.value })}
             />
           </div>
 
