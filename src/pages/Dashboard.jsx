@@ -28,7 +28,7 @@ function Dashboard() {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState('All');
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [editingSnippet, setEditingSnippet] = useState(null); // Track what we are editing
+  const [editingSnippet, setEditingSnippet] = useState(null);
   const [activeTag, setActiveTag] = useState(null);
 
   const handleSaveSnippet = (snippetData) => {
@@ -95,7 +95,7 @@ function Dashboard() {
             </button>
           </div>
         </div>
-
+ 
         {/* Toolbar: stats left, filters/right controls */}
         <div className="flex items-center justify-between gap-6 mb-8">
           <div className="flex items-center gap-3 w-full lg:w-2/3">

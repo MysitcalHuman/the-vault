@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
 
 @theme {
   --color-obsidian: #0d0d0d;
@@ -7,8 +8,6 @@
   /* This links the Tailwind 'font-mono' utility to the Google Font */
   --font-mono: "JetBrains Mono", monospace;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
 
 @layer base {
   body {
@@ -27,6 +26,26 @@
     @apply bg-white/5 border border-white/10 rounded-lg px-4 py-2 focus:outline-none focus:border-white/30 transition-all;
   }
 }
+  /* Make native select dropdowns match the app's dark theme */
+  select.glass-input {
+    background: rgba(255, 255, 255, 0.04);
+    color: rgba(229, 231, 235, 1);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  /* Ensure dropdown option panels are dark with readable text */
+  select.glass-input option {
+    background-color: #0d0d0d;
+    color: #e5e7eb;
+  }
+
+  /* Accessible focus styles */
+  .glass-input:focus-visible {
+    outline: 2px solid rgba(99,102,241,0.9);
+    outline-offset: 2px;
+  }
 
 @layer utilities {
   .custom-scrollbar::-webkit-scrollbar {
