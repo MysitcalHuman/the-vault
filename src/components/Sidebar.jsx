@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Terminal, Code2, Layout, Database, Cpu, Braces, Hash, Globe, Settings } from 'lucide-react';
+import { Terminal, Code2, Layout, Database, Cpu, Braces, Hash, Globe, Settings, Square } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const categories = [
@@ -11,6 +11,7 @@ const categories = [
   { name: 'SQL/Backend', icon: <Database size={18} />, filter: 'SQL' },
   { name: 'HTML/CSS', icon: <Globe size={18} />, filter: 'CSS' },
   { name: 'Utilities', icon: <Cpu size={18} />, filter: 'Utilities' },
+  { name: 'Other', icon: <Square size={18} />, filter: 'Other' },
 ];
 
 export default function Sidebar({ activeCategory, setActiveCategory, snippets = [] }) {
@@ -104,21 +105,21 @@ export default function Sidebar({ activeCategory, setActiveCategory, snippets = 
       </nav>
 
       {collapsed ? (
-        <button
-          onClick={() => alert('Settings coming soon!')}
+        <Link
+          to="/settings"
           className="mt-auto p-2 rounded-full hover:bg-white/5 self-center"
           aria-label="Settings"
         >
           <Settings size={18} className="text-gray-200" />
-        </button>
-      ) : (
-        <button
-          onClick={() => alert('Settings coming soon!')}
+        </Link>
+      ) : ( 
+        <Link
+          to="/settings"
           className="bg-white text-obsidian px-4 py-2 flex items-center justify-center rounded-lg font-semibold text-sm hover:bg-gray-200 transition"
           style={{ marginTop: 'auto' }}
         >
           Settings
-        </button>
+        </Link>
       )}
     </aside>
   );
